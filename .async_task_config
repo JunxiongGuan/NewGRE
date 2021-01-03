@@ -1,0 +1,23 @@
+[bd]
+command=export GOPATH=$(VIM_ROOT) && go build $(VIM_FILEDIR)
+cwd=$(VIM_ROOT)
+output=quickfix
+errorformat=%f:%l:%m
+save=0
+
+[rn]
+command=export GOPATH=$(VIM_ROOT) && go run $(VIM_FILEDIR)
+cwd=$(VIM_ROOT)
+output=quickfix
+errorformat=%f:%l:%m
+save=0
+
+[grep]
+command=rg -n --no-heading --color never "$(?keyword)" "<root>" -tcpp -tc -tpy -tvim -tgo -tasm
+cwd=$(VIM_ROOT)
+errorformat=%f:%l:%m
+save=0
+
+[gofmt]
+command=go fmt $(VIM_FILEPATH)
+cwd=$(VIM_ROOT)
